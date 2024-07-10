@@ -21,41 +21,33 @@
    text-align: center;
 }
 
-.container .content h3{
+ .container .headerInfo h3{
    font-size: 30px;
    color:#333;
 }
 
-.container .content h3 span{
+ .container .headerInfo h3 span{
    background: crimson;
    color:#fff;
    border-radius: 5px;
    padding:0 15px;
 }
 
-.container .content h1{
+.container .headerInfo h1{
    font-size: 50px;
    color:#333;
 }
 
-.container .content h1 span{
+.container .headerInfo h1 span{
    color:crimson;
 }
 
-.container .content p{
+.container .headerInfo p{
    font-size: 25px;
    margin-bottom: 20px;
 }
 
-.container .content .btn{
-   display: inline-block;
-   padding:10px 30px;
-   font-size: 20px;
-   background: #333;
-   color:#fff;
-   margin:0 5px;
-   text-transform: capitalize;
-}
+
 
 .container .content .btn:hover{
    background: rgb(0, 8, 159);
@@ -128,4 +120,49 @@
    border-radius: 5px;
    font-size: 20px;
    padding:10px;
+}
+#icons{
+   margin-left: 10px;
+   border-radius: 50%;
+}
+#bell{
+   margin-left: 5px;
+}
+a img{
+   border-radius: 50%;
+
+}
+#cards{
+   display: flex;
+   flex-direction: row;
+   
+}
+#profile img{
+   height: 200px;
+   width: 200px;
+   border-radius: 50%;
+}
+.profile_container{
+   margin-top: 30px;
+}
+.containerProfile{
+   display: flex;
+   flex-direction: row;
+   padding: 5px;
+   margin: 5px;
+}
+.headerInfo{
+   margin: 10px;
+   margin-right: 10px;
+}
+.col_information{
+   display: flex;
+   flex-direction: row;
+
+}
+.col1 img{
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+
 }

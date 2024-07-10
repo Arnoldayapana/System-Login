@@ -1,16 +1,3 @@
-<?php
-
-include 'config.php';
-
-session_start();
-
-if(!isset($_SESSION['employee_name'])){
-   header('location:login_form.php');
-   exit(); 
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,27 +6,23 @@ if(!isset($_SESSION['employee_name'])){
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/689f460c4e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/employee.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <!--HEADER -->
-  <?php
-  include 'include/header.php';
-  ?>
+  
   <!--/HEADER -->
- 
 
   <!-- main -->
    <main>
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="profile_container">
                 <div class="containerProfile" id="profile">
                     <img src="me.jpg" alt="Profile Picture">
-                    <div class="headerInfo">
-                     <h3><span>Hi!</span></h3>
-                     <h1>welcome <span><?php echo $_SESSION['employee_name'] ?></span></h1>
-                     <p>this is an admin page</p>
+                    <div class="content">
+                        <h3>Juan Delacruz </h3>
+                        <p>HR Admin</p>
                     </div>
                 </div>
             </div>
