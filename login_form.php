@@ -6,13 +6,13 @@ session_start();
 
 if(isset($_POST['submit'])){
 
-   $name = isset($_POST['name']) ? mysqli_real_escape_string($conn, $_POST['name']) : '';
+   $name = isset($_POST['Name']) ? mysqli_real_escape_string($conn, $_POST['Name']) : '';
    $email = isset($_POST['email']) ? mysqli_real_escape_string($conn, $_POST['email']) : '';
-   $pass = isset($_POST['password']) ? md5($_POST['password']) : '';
+   $password = isset($_POST['password']) ? md5($_POST['password']) : '';
    $cpass = isset($_POST['cpassword']) ? md5($_POST['cpassword']) : '';
-   $user_type = isset($_POST['user_type']) ? $_POST['user_type'] : '';
+   $role = isset($_POST['role']) ? $_POST['role'] : '';
 
-   $select = " SELECT * FROM users WHERE email = '$email' && password = '$pass' ";
+   $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -20,19 +20,19 @@ if(isset($_POST['submit'])){
 
       $row = mysqli_fetch_array($result);
 
-      if($row['user_type'] == 'admin'){
+      if($row['role'] == 'admin'){
 
-         $_SESSION['admin_name'] = $row['name'];
+         $_SESSION['admin_name'] = $row['Name'];
          header('location:admin_page.php');
 
-      }elseif($row['user_type'] == 'user'){
+      }elseif($row['role'] == 'scholar'){
 
-         $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
+         $_SESSION['scholar_name'] = $row['Name'];
+         header('location:scholar_page.php');
 
-      }elseif($row['user_type'] == 'employee'){
+      }elseif($row['role'] == 'employee'){
 
-         $_SESSION['employee_name'] = $row['name'];
+         $_SESSION['employee_name'] = $row['Name'];
          header('location:employee_page.php');
 
       }
@@ -69,8 +69,8 @@ if(isset($_POST['submit'])){
          };
       };
       ?>
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
+      <input type="email" name="email" required placeholder="sample@Email.com" required>
+      <input type="password" name="password" required placeholder="Password " required>
       <input type="submit" name="submit" value="login now" class="form-btn">
    </form>
 

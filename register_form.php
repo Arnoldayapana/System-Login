@@ -6,11 +6,11 @@ if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
+   $password = md5($_POST['password']);
    $cpass = md5($_POST['cpassword']);
-   $user_type = $_POST['user_type'];
+   $role = $_POST['role'];
 
-   $select = " SELECT * FROM users WHERE email = '$email' && password = '$pass' ";
+   $select = " SELECT * FROM users WHERE email = '$email' && password = '$password' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -20,10 +20,10 @@ if(isset($_POST['submit'])){
 
    }else{
 
-      if($pass != $cpass){
+      if($password != $cpass){
          $error[] = 'password not matched!';
       }else{
-         $insert = "INSERT INTO users(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
+         $insert = "INSERT INTO users(name, email, password, role) VALUES('$name','$email','$password','$role')";
          mysqli_query($conn, $insert);
          header('location:login_form.php');
       }
@@ -63,8 +63,8 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" required placeholder="enter your email">
       <input type="password" name="password" required placeholder="enter your password">
       <input type="password" name="cpassword" required placeholder="confirm your password">
-      <select name="user_type">
-         <option value="user">user</option>
+      <select name="role">
+         <option value="scholar">scholar</option>
          <option value="admin">admin</option>
          <option value="employee">Employee</option>
       </select>
